@@ -4,6 +4,7 @@ Apache Thrift 是 Facebook 实现的一种高效的、支持多种编程语言�
 TSimpleServer —— 单线程服务器端使用标准的阻塞式 I/O
 代码如下：
 *使用 TSimpleServer 服务端构建的 HelloServiceServer.java
+  ```JAVA
   // 设置调用的服务地址为本地，端口为 7911 
    TTransport transport = new TSocket("localhost", 7911); 
    transport.open(); 
@@ -13,7 +14,9 @@ TSimpleServer —— 单线程服务器端使用标准的阻塞式 I/O
    // 调用服务的 helloVoid 方法
    client.helloVoid(); 
    transport.close(); 
+   ```
 *TThreadPoolServer —— 多线程服务器端使用标准的阻塞式 I/O
+  ```JAVA
    // 设置调用的服务地址为本地，端口为 7911 
    TTransport transport = new TSocket("localhost", 7911); 
    transport.open(); 
@@ -23,7 +26,9 @@ TSimpleServer —— 单线程服务器端使用标准的阻塞式 I/O
    // 调用服务的 helloVoid 方法
    client.helloVoid(); 
    transport.close(); 
+   ```
 *TNonblockingServer —— 多线程服务器端使用非阻塞式 I/O
+  ```JAVA
   // 设置调用的服务地址为本地，端口为 7911 
   TTransport transport = new TFramedTransport(new TSocket("localhost", 10005));
   transport.open(); 
@@ -33,3 +38,4 @@ TSimpleServer —— 单线程服务器端使用标准的阻塞式 I/O
   // 调用服务的 helloVoid 方法
   client.helloVoid(); 
   transport.close(); 
+  ```
